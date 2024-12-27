@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Log</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        select, input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="workout_log.html">Workout Log</a>
+        <a href="1rm_tracker.html">1RM Tracker</a>
+        <a href="smolov_program.html">Smolov Program</a>
+        <a href="kettlebell_routine.html">Kettlebell Routine</a>
+        <a href="full_body.html">Full Body Routine</a>
+        <a href="pullup.html">Pull Up Routine</a>
+    </nav>
+
+    <h1>Workout Log</h1>
+    <div class="container">
+        <h2>Log Your Workout</h2>
+        <form id="workoutForm">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="exercise">Exercise:</label>
+            <select id="exercise" name="exercise" required>
+                <option value="Bench Press">Bench Press</option>
+                <option value="Squat">Squat</option>
+                <option value="Deadlift">Deadlift</option>
+            </select>
+            
+            <label for="weight">Weight (lbs):</label>
+            <input type="number" id="weight" name="weight" placeholder="e.g., 135" required>
+            
+            <label for="reps">Reps:</label>
+            <input type="number" id="reps" name="reps" placeholder="e.g., 5" required>
+            
+            <label for="sets">Sets:</label>
+            <input type="number" id="sets" name="sets" placeholder="e.g., 3" required>
+
+            <button type="submit">Add Log</button>
+        </form>
+
+        <h2>Workout Logs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Exercise</th>
+                    <th>Weight (lbs)</th>
+                    <th>Reps</th>
+                    <th>Sets</th>
+                </tr>
+            </thead>
+            <tbody id="logTable">
+                <!-- Workout logs will appear here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const form = document.getElementById('workoutForm');
+        const logTable = document.getElementById('logTable');
+
+        // Add event listener to the form
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const date = document.getElementById('date').value;
+            const exercise = document.getElementById('exercise').value;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const reps = parseInt(document.getElementById('reps').value);
+            const sets = parseInt(document.getElementById('sets').value);
+
+            // Create a new table row
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${date}</td>
+                <td>${exercise}</td>
+                <td>${weight}</td>
+                <td>${reps}</td>
+                <td>${sets}</td>
+            `;
+
+            // Append row to the table
+            logTable.appendChild(row);
+
+            // Clear the form
+            form.reset();
+        });
+    </script>
+</body>
+</html>

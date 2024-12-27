@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smolov 5-Week Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input[type="number"], button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function calculateWeights() {
+            const oneRM = parseFloat(document.getElementById("oneRM").value);
+            const weights = document.querySelectorAll(".weight");
+            
+            if (!oneRM || isNaN(oneRM)) {
+                alert("Please enter a valid 1RM!");
+                return;
+            }
+
+            weights.forEach(weightCell => {
+                const intensity = parseFloat(weightCell.dataset.intensity);
+                const calculatedWeight = Math.round(oneRM * intensity / 100);
+                weightCell.textContent = `${calculatedWeight} lbs`;
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="workout_log.html">Workout Log</a>
+        <a href="1rm_tracker.html">1RM Tracker</a>
+        <a href="smolov_program.html">Smolov Program</a>
+        <a href="kettlebell_routine.html">Kettlebell Routine</a>
+        <a href="full_body.html">Full Body Routine</a>
+        <a href="pullup.html">Pull Up Routine</a>
+    </nav>
+
+    <h1>Smolov Strength Training Program</h1>
+    <div class="container">
+        <h2>Enter Your 1RM</h2>
+        <input type="number" id="oneRM" placeholder="Enter your 1RM in lbs" min="1" />
+        <button onclick="calculateWeights()">Calculate Weights</button>
+
+        <h2>5-Week Program Breakdown</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Day</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Intensity (% of 1RM)</th>
+                    <th>Weight (lbs)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Week 1 -->
+                <tr>
+                    <td rowspan="4">1</td>
+                    <td>Monday</td>
+                    <td>4</td>
+                    <td>9</td>
+                    <td>70%</td>
+                    <td class="weight" data-intensity="70"></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>5</td>
+                    <td>7</td>
+                    <td>75%</td>
+                    <td class="weight" data-intensity="75"></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>7</td>
+                    <td>5</td>
+                    <td>80%</td>
+                    <td class="weight" data-intensity="80"></td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>10</td>
+                    <td>3</td>
+                    <td>85%</td>
+                    <td class="weight" data-intensity="85"></td>
+                </tr>
+
+                <!-- Week 2 -->
+                <tr>
+                    <td rowspan="4">2</td>
+                    <td>Monday</td>
+                    <td>4</td>
+                    <td>9</td>
+                    <td>70%</td>
+                    <td class="weight" data-intensity="70"></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>5</td>
+                    <td>7</td>
+                    <td>75%</td>
+                    <td class="weight" data-intensity="75"></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>7</td>
+                    <td>5</td>
+                    <td>80%</td>
+                    <td class="weight" data-intensity="80"></td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>10</td>
+                    <td>3</td>
+                    <td>85%</td>
+                    <td class="weight" data-intensity="85"></td>
+                </tr>
+
+                <!-- Week 3 -->
+                <tr>
+                    <td rowspan="4">3</td>
+                    <td>Monday</td>
+                    <td>4</td>
+                    <td>9</td>
+                    <td>70%</td>
+                    <td class="weight" data-intensity="70"></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>5</td>
+                    <td>7</td>
+                    <td>75%</td>
+                    <td class="weight" data-intensity="75"></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>7</td>
+                    <td>5</td>
+                    <td>80%</td>
+                    <td class="weight" data-intensity="80"></td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>10</td>
+                    <td>3</td>
+                    <td>85%</td>
+                    <td class="weight" data-intensity="85"></td>
+                </tr>
+
+                <!-- Week 4 -->
+                <tr>
+                    <td rowspan="3">4</td>
+                    <td>Monday</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>80%</td>
+                    <td class="weight" data-intensity="80"></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>85%</td>
+                    <td class="weight" data-intensity="85"></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>90%</td>
+                    <td class="weight" data-intensity="90"></td>
+                </tr>
+
+                <!-- Week 5 -->
+                <tr>
+                    <td rowspan="3">5</td>
+                    <td>Monday</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>75%</td>
+                    <td class="weight" data-intensity="75"></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>80%</td>
+                    <td class="weight" data-intensity="80"></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>90%</td>
+                    <td class="weight" data-intensity="90"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Program Notes</h2>
+        <ul>
+            <li>This program is squat-focused but can be adapted for other lifts like bench press or deadlift.</li>
+            <li>Rest days are essential for recovery. Ensure proper sleep and nutrition.</li>
+            <li>Warm-up thoroughly before each session and prioritize form to avoid injury.</li>
+            <li>Consider deloading or testing your new 1RM after completing the program.</li>
+        </ul>
+    </div>
+</body>
+</html>
